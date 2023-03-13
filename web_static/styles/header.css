@@ -32,5 +32,10 @@ nav {
 }
 
 header {
+    padding-top: 10px;
     border-bottom: 1.5px solid #C0B6B6;
+    position: fixed;
+    background-color: #F7F7F7;
+    width: 100%;
+    top: 0;
 }

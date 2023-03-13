@@ -1,7 +1,7 @@
 .side-panel {
     position: fixed;
     right: 0px;
-    top: 56.5px;
+    top: 59px;
     bottom: 40px;
     border-left: 1.5px solid #C0B6B6;
     width: 35%;
@@ -18,12 +18,14 @@
     margin: 30px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 80%; 
+    width: 80%;
+    min-width: 300px;
 }
 
 .event-card .event_title {
     background-color: #6B6060;
     width: 20%;
+    min-width: 119px;
     text-align: center;
     top: 10px;
     margin: 10px;
