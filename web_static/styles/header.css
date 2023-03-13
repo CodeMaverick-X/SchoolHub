@@ -1,0 +1,36 @@
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.topnav {
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #251D1D;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px 5px 0px 0px;
+}
+.topnav a.active {
+    font-weight: bold;
+}
+
+.topnav a:hover {
+    background-color: #E9E9E9;
+}
+
+header {
+    border-bottom: 1.5px solid #C0B6B6;
+}

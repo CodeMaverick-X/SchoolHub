@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>place holder</title>
+        <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../scripts/login.js"></script>
+    </head>
+    <body>
+        <!-- Button to open the modal login form -->
+        <button id="login_btn">Login</button>
+
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <!-- Modal Content -->
+            <form class="modal-content animate">
+                <div class="imgcontainer">
+                    <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                </div>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

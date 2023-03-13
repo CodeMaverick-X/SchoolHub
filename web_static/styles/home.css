@@ -1,0 +1,20 @@
+body {
+    background-color: #F7F7F7;
+}
+.page-content {
+    width: 65%;
+}
+
+.quote_header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.quote {
+    background-color: #E9E9E9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+}
