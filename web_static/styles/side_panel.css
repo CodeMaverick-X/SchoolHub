@@ -46,3 +46,11 @@
 .time {
     border-bottom: 1.5px solid #251D1D;
 }
+
+/* Change styles for side_panel on extra small screens */
+@media screen and (max-width: 600px) {
+    .side-panel {
+        position: static;
+        border-left: none;
+    }
+  }

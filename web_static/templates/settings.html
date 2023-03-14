@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/home.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/settings.css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../scripts/settings.js"></script>
         <title></title>
     </head>
     <body>
@@ -26,36 +28,57 @@
                 <div class="personal_data">
                     <div id="username">Reinhard</div>
                     <div class="edit_details">
-                    <div class="dropdown_semester">
-                        <div class="edit_unit">1st Semester</div> 
-                        <div class="dropdown-content_semester">
-                            <a href="#">1st Semester</a>
-                            <a href="#">2nd Semester</a>
+                        <div class="dropdown_semester">
+                            <div class="edit_unit" id="semester">1st Semester</div> 
+                            <div class="dropdown-content_semester">
+                                <a href="#">1st Semester</a>
+                                <a href="#">2nd Semester</a>
+                            </div>
+                        </div>
+                        <div class="dropdown_year">
+                            <div class="edit_unit">1st Year</div> 
+                            <div class="dropdown-content_year">
+                                <a href="#">1st Year</a>
+                                <a href="#">2nd Year</a>
+                                <a href="#">3rd Year</a>
+                                <a href="#">4th Year</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="dropdown_year">
-                        <div class="edit_unit">1st Year</div> 
-                        <div class="dropdown-content_year">
-                            <a href="#">1st Year</a>
-                            <a href="#">2nd Year</a>
-                            <a href="#">3rd Year</a>
-                            <a href="#">4th Year</a>
-                        </div>
-                    </div>
-                    </div>
+                    <button class="reload">Reload</button>
 
                 </div>
                 <div class="courses_data">
                     <div class="courses_header">Courses</div>
                     <div class="course_list">
-                        <div class="course">Math 120</div>
-                        <div class="course">chem 130</div>
-                        <div class="course">Eng 100</div>
+                        <div class="course">Math 120<input type="checkbox"></div>
+                        <div class="course">chem 130<input type="checkbox"></div>
+                        <div class="course">Eng 100<input type="checkbox"></div>
                     </div>
                 </div>
                 <div class="edit_class">
-                    <img src="../images/add_button.png" alt="add_class" class="add">
+                    <button class="edit/add_button" id="edit_button">Edit/Add</button>
+                    <div id="set-edit_id" class="edit-add_modal">
+                        <form class="edit_form">
+                            <div><h3>Add/Edit Course</h3></div>
+
+                            <label for="cname"><b>Course Name*</b></label>
+                            <input type="text" placeholder="Enter Course name" name="cname" required>
+
+                            <label for="desc"><b>Discription</b></label>
+                            <input type="text" placeholder="Enter description" name="desc">
+                            <div>
+                                <button type="submit">Save</button>
+                                <button type="button" class="cancelbtn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <button>Delete</button>
+                    <div class="logout">
+                        <button>Logout</button>
+                    </div>
                 </div>
+                
             </section>
             <section class="side-panel">
                 <h2 class="section_title">Today's Events</h2>

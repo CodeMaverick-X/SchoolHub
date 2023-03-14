@@ -1,0 +1,61 @@
+.page-content {
+    margin-top: 70px;
+    width: 65%;
+}
+
+table {
+    border-collapse: collapse;
+  }
+
+.grades_table {
+    margin-left: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+th {
+    padding: 10px 7px;
+}
+
+tr {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+td {
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.edit_class {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #6B6060;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 10px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    opacity: 0.8;
+  }
+
+.grades_title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.grade_point {
+    margin-top: 30px;
+}

@@ -72,6 +72,9 @@
   .dropdown_year {
     display: inline-block;
   }
+  .reload {
+    margin-top: 20px;
+  }
 
   .courses_data {
     margin-top: 40px;
@@ -84,7 +87,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 19px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .course_list .course {
@@ -94,10 +97,64 @@
     padding: 10px;
     border-radius: 5px;
     background-color: white;
+    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
 }
 .edit_class {margin-left: 32px;}
-.add {
-    height: 50px;
-    width: 50px;
+
+button {
+    background-color: #6B6060;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 10px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    opacity: 0.8;
+  }
+
+.logout button {
+    margin-top: 20px;
+    background-color: red;
+}
+
+/* rules for the modals for edit add button*/
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+
+.edit-add_modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.edit_form {
+    background-color: #fefefe;
+    padding: 15px;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    border-radius: 5px;
 }

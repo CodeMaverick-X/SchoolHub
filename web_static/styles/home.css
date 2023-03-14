@@ -32,3 +32,11 @@ body {
     width: 80%;
 
 }
+
+/* Change styles for side_panel on extra small screens */
+@media screen and (max-width: 600px) {
+    .page-content {
+        margin-top: 50px;
+        width: 100%;
+    }
+  }
