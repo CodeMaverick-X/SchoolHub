@@ -1,0 +1,42 @@
+body {
+    background-color: #F7F7F7;
+    
+}
+.page-content {
+    margin-top: 50px;
+    width: 65%;
+}
+
+.quote_header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 15px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.quote {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    background-color: #E9E9E9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.school_image {
+    margin-top: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 14%;
+    width: 80%;
+
+}
+
+/* Change styles for side_panel on extra small screens */
+@media screen and (max-width: 600px) {
+    .page-content {
+        margin-top: 50px;
+        width: 100%;
+    }
+  }

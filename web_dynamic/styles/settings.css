@@ -1,0 +1,152 @@
+/*Box shadow group*/
+.user_image, .edit_unit,
+#username, .dropdown-content_semester,
+.dropdown-content_year,
+.course_list .course,
+button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*same font group*/
+.default_info,
+.edit_unit,
+#username, .courses_header,
+.course_list .course,
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user_image {
+    height: 250px;
+    width: 250px;
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.info_wrapper {
+    margin-top: 40px;
+    padding: 20px;
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+.school_details {
+    margin-top: 60px;
+}
+
+.edit_unit,
+#username {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+#username {
+    background-color: white;
+}
+
+.edit_unit {
+    display: inline-block;
+    background-color: #6B6060;
+    color: white;
+}
+#space_left {
+    margin-left: 40px;
+}
+  
+  .dropdown_semester,
+  .dropdown_year {
+    display: inline-block;
+  }
+  .reload {
+    margin-top: 20px;
+  }
+
+  .courses_data {
+    margin-top: 40px;
+    padding: 20px;
+    margin-left: 10px;
+    vertical-align: top;
+  }
+
+.courses_header {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.course_list .course {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.buttons_wrapper {margin-left: 32px;}
+
+button {
+    background-color: #6B6060;
+    color: white;
+    padding: 10px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.8;
+  }
+
+.logout button {
+    margin-top: 20px;
+    background-color: red;
+}
+
+/* rules for the modals for edit add button*/
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+
+.edit-add_modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.edit_form {
+    background-color: #fefefe;
+    padding: 15px;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+.edit_form textarea {
+    resize: none;
+    margin: 10px 0px;
+}
+
+.default_info,
+.default_info button {
+    margin-top: 10px;
+}

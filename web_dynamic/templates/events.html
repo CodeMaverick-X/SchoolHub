@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../styles/header.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/side_panel.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/home.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/events.css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../scripts/events.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <span class="logo">SchoolHub</span>
+            <nav class="topnav">
+                <a href="home.html">Home</a>
+                <a href="settings.html">Settings</a>
+                <a href="grades.html">Grades</a>
+                <a class="active" href="events.html">Events</a>
+            </nav>
+        </header>
+        <div class="midle_container">
+            <section class="page-content">
+                <!--fill  this part-->
+                <table class="grades_table">
+                    <tr>
+                      <th>Time</th>
+                      <th>MON</th>
+                      <th>TUE</th>
+                      <th>WED</th>
+                      <th>THU</th>
+                      <th>FRI</th>
+                      <th>SAT</th>
+                      <th>SUN</th>
+                    </tr>
+                    <tr>
+                      <td>8 - 10</td>
+                      <td></td>
+                      <td>Eng 100</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>10 -12</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>chem 130</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>12 -14</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Math 120</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>14 -16</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>16 -18</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                  </table>
+                  <div class="edit_class">
+                    <button class="edit_button">Edit/Add</button>
+                    
+                    <div class="edit-add_modal">
+                        <form id="dropdown-form" action="" method="post" class="edit_form">
+                            <label for="dropdown1-radio1">Enter Event name:</label><br>
+                            <input type="text" id="dropdown1-radio1" name="dropdown1-radio" placeholder="enetr name">
+                    
+                            <button type="button" id="dropdown-toggle1">Select day</button><br><br>
+                    
+                            <select id="dropdown1" name="dropdown1">
+                                <option value="option4">Monday</option>
+                                <option value="option5">Tuesday</option>
+                                <option value="option6">Wednesday</option>
+                                <option value="option6">Thursday</option>
+                                <option value="option6">Friday</option>
+                                <option value="option6">Sarturday</option>
+                                <option value="option6">Sunday</option>
+                            </select><br><br>
+                    
+                            <button type="button" id="dropdown-toggle2">Select time</button><br><br>
+                    
+                            <select id="dropdown2" name="dropdown2">
+                                <option value="option10">8 - 10</option>
+                                <option value="option11">10 - 12</option>
+                                <option value="option12">12 - 14</option>
+                                <option value="option12">14 - 16</option>
+                                <option value="option12">16 - 18</option>
+                            </select><br><br>
+                    
+                            <button type="submit">Submit</button>
+                            <button type="reset" class="cancelbtn">Cancel</button>
+                        </form>
+                    </div>
+            </section>
+            <section class="side-panel">
+                <h2 class="section_title">Today's Events</h2>
+                <div class="event-card">
+                    <div class="event_title">Eng 100</div>
+                    <span class="start_time">From <span class="time">9:45 am</span></span>
+                    <span class="end_time">To <span class="time">11:15 am</span></span>
+                </div>
+                <div class="event-card">
+                    <div class="event_title">Math 120</div>
+                    <span class="start_time">From <span class="time">11:30 am</span></span>
+                    <span class="end_time">To <span class="time">1:30 pm</span>
+                </div>
+                <div class="event-card">
+                    <div class="event_title">chem 130</div>
+                    <span class="start_time">From <span class="time">3:20 pm</span></span>
+                    <span class="end_time">To <span class="time">5:00 pm</span>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <span>footer place holder</span>
+        </footer>
+    </body>
+</html>
