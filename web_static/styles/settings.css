@@ -1,3 +1,21 @@
+/*Box shadow group*/
+.user_image, .edit_unit,
+#username, .dropdown-content_semester,
+.dropdown-content_year,
+.course_list .course,
+button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*same font group*/
+.default_info,
+.edit_unit,
+#username, .courses_header,
+.course_list .course,
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .user_image {
     height: 250px;
     width: 250px;
@@ -5,26 +23,23 @@
     margin-top: 40px;
     margin-left: 10px;
     display: inline-block;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.personal_data {
+.info_wrapper {
     margin-top: 40px;
     padding: 20px;
     margin-left: 30px;
     display: inline-block;
     vertical-align: top;
 }
-.edit_details {
+.school_details {
     margin-top: 60px;
 }
 
 .edit_unit,
 #username {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 #username {
@@ -39,35 +54,7 @@
 #space_left {
     margin-left: 40px;
 }
-
-.dropdown-content_semester,
-.dropdown-content_year {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-  .dropdown-content_semester a,
-  .dropdown-content_year a {
-    color: black;
-    padding: 12px 7px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown_semester:hover .dropdown-content_semester {
-    display: block;
-  }
-  .dropdown_year:hover .dropdown-content_year {
-    display: block;
-  }
-
-  .dropdown-content_semester a:hover {background-color: #f1f1f1}
-  .dropdown-content_year a:hover {background-color: #f1f1f1}
-
+  
   .dropdown_semester,
   .dropdown_year {
     display: inline-block;
@@ -84,7 +71,6 @@
   }
 
 .courses_header {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 19px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -92,27 +78,23 @@
 
 .course_list .course {
     display: inline-block;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-right: 10px;
     padding: 10px;
     border-radius: 5px;
     background-color: white;
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-top: 5px;
 }
-.edit_class {margin-left: 32px;}
+.buttons_wrapper {margin-left: 32px;}
 
 button {
     background-color: #6B6060;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     padding: 10px 7px;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
     border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
@@ -157,4 +139,14 @@ input[type=text], input[type=password] {
     width: 70%; /* Could be more or less, depending on screen size */
     max-width: 600px;
     border-radius: 5px;
+}
+
+.edit_form textarea {
+    resize: none;
+    margin: 10px 0px;
+}
+
+.default_info,
+.default_info button {
+    margin-top: 10px;
 }

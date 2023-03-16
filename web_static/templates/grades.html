@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/home.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/grades.css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../scripts/grades.js"></script>
         <title></title>
     </head>
     <body>
@@ -29,25 +31,46 @@
                       <th>C/A</th>
                       <th>Exam</th>
                       <th>Total</th>
+                      <th>Grade</th>
                     </tr>
                     <tr>
-                      <td>Math 120<input type="checkbox"></td>
+                      <td><button class="edit_button">Math 120</button></td>
                       <td>3</td>
                       <td>18</td>
                       <td>58</td>
                       <td>76</td>
+                      <td>A</td>
                     </tr>
                     <tr>
-                      <td>Chem 130<input type="checkbox"></td>
+                      <td><button class="edit_button">Chem 130</button></td>
                       <td>3</td>
                       <td>19</td>
                       <td>50</td>
                       <td>69</td>
+                      <td>B</td>
                     </tr>
                   </table>
                   <div class="edit_class">
-                    <button>Edit/Add</button>
-                    <button>Delete</button>
+                    <div class="edit-add_modal">
+                        <form class="edit_form">
+                            <div><h3>Edit Grade</h3></div>
+
+                            <label for="cname"><b>Weight</b></label>
+                            <input type="text" placeholder="Enter Course name" name="cname" maxlength="1" required>
+
+                            <label for="cname"><b>C.A</b></label>
+                            <input type="text" placeholder="Enter Course name" name="cname" maxlength="2">
+
+                            <label for="cname"><b>Exam</b></label>
+                            <input type="text" placeholder="Enter Course name" name="cname" maxlength="2">
+
+                            <div>
+                                <button type="submit">Save</button>
+                                <button type="button" class="cancelbtn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--edit grades modal-->
                 </div>
                 <div class="grade_point">
                     <div class="grades_title">Grade point</div>

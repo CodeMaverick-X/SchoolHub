@@ -25,48 +25,49 @@
             <section class="page-content">
                 <!--fill  this part-->
                 <img src="../images/Untitled design.png" class="user_image">
-                <div class="personal_data">
+                <div class="info_wrapper">
                     <div id="username">Reinhard</div>
-                    <div class="edit_details">
+                    <div class="school_details">
                         <div class="dropdown_semester">
-                            <div class="edit_unit" id="semester">1st Semester</div> 
-                            <div class="dropdown-content_semester">
-                                <a href="#">1st Semester</a>
-                                <a href="#">2nd Semester</a>
-                            </div>
+                            <select id="dropdown1" name="dropdown1">
+                                <option value="option4">1st semester</option>
+                                <option value="option5">2nd semester</option>
+                            </select><br><br>
                         </div>
                         <div class="dropdown_year">
-                            <div class="edit_unit">1st Year</div> 
-                            <div class="dropdown-content_year">
-                                <a href="#">1st Year</a>
-                                <a href="#">2nd Year</a>
-                                <a href="#">3rd Year</a>
-                                <a href="#">4th Year</a>
-                            </div>
+                            <select id="dropdown2" name="dropdown2">
+                                <option value="option10">1st year</option>
+                                <option value="option11">2nd year</option>
+                                <option value="option12">3rd year</option>
+                                <option value="option12">4th year</option>
+                                <option value="option12">5th year</option>
+                            </select><br><br>
+                            </form>
                         </div>
                     </div>
-                    <button class="reload">Reload</button>
+                    <button class="reload" id="reload_1">Reload</button>
 
                 </div>
                 <div class="courses_data">
                     <div class="courses_header">Courses</div>
                     <div class="course_list">
-                        <div class="course">Math 120<input type="checkbox"></div>
-                        <div class="course">chem 130<input type="checkbox"></div>
-                        <div class="course">Eng 100<input type="checkbox"></div>
+                        <label class="course">Math 120<input type="checkbox" name="checkbox" value="Math 120"></label>
+                        <label class="course">Chem 130<input type="checkbox" name="checkbox" value="Chem 120"></label>
+                        <label class="course">Eng 100<input type="checkbox" name="checkbox" value="Eng 100"></label>
                     </div>
                 </div>
-                <div class="edit_class">
-                    <button class="edit/add_button" id="edit_button">Edit/Add</button>
-                    <div id="set-edit_id" class="edit-add_modal">
+                <div class="buttons_wrapper">
+                    <button id="edit_button">Edit/Add</button>
+                    <div class="edit-add_modal">
                         <form class="edit_form">
                             <div><h3>Add/Edit Course</h3></div>
 
                             <label for="cname"><b>Course Name*</b></label>
-                            <input type="text" placeholder="Enter Course name" name="cname" required>
+                            <input type="text" placeholder="Enter Course name" name="cname" maxlength="9" required>
 
-                            <label for="desc"><b>Discription</b></label>
-                            <input type="text" placeholder="Enter description" name="desc">
+                            <label for="desc"><b>Discription</b></label><br>
+                            <!--<input type="text" placeholder="Enter description" name="desc">-->
+                            <textarea name="desc" rows="4" cols="35" placeholder="Enter Course description" maxlength="50"></textarea>
                             <div>
                                 <button type="submit">Save</button>
                                 <button type="button" class="cancelbtn">Cancel</button>
@@ -74,6 +75,10 @@
                         </form>
                     </div>
                     <button>Delete</button>
+                    <div class="default_info">
+                        <div>set current semester and year as default</div>
+                        <button id="set">Set</button>
+                    </div>
                     <div class="logout">
                         <button>Logout</button>
                     </div>

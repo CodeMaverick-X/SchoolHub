@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/home.css"/>
         <link rel="stylesheet" type="text/css" href="../styles/events.css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../scripts/events.js"></script>
         <title></title>
     </head>
     <body>
@@ -85,8 +87,39 @@
                       </tr>
                   </table>
                   <div class="edit_class">
-                    <button>Edit/Add</button>
-                    <button>Delete</button>
+                    <button class="edit_button">Edit/Add</button>
+                    
+                    <div class="edit-add_modal">
+                        <form id="dropdown-form" action="" method="post" class="edit_form">
+                            <label for="dropdown1-radio1">Enter Event name:</label><br>
+                            <input type="text" id="dropdown1-radio1" name="dropdown1-radio" placeholder="enetr name">
+                    
+                            <button type="button" id="dropdown-toggle1">Select day</button><br><br>
+                    
+                            <select id="dropdown1" name="dropdown1">
+                                <option value="option4">Monday</option>
+                                <option value="option5">Tuesday</option>
+                                <option value="option6">Wednesday</option>
+                                <option value="option6">Thursday</option>
+                                <option value="option6">Friday</option>
+                                <option value="option6">Sarturday</option>
+                                <option value="option6">Sunday</option>
+                            </select><br><br>
+                    
+                            <button type="button" id="dropdown-toggle2">Select time</button><br><br>
+                    
+                            <select id="dropdown2" name="dropdown2">
+                                <option value="option10">8 - 10</option>
+                                <option value="option11">10 - 12</option>
+                                <option value="option12">12 - 14</option>
+                                <option value="option12">14 - 16</option>
+                                <option value="option12">16 - 18</option>
+                            </select><br><br>
+                    
+                            <button type="submit">Submit</button>
+                            <button type="reset" class="cancelbtn">Cancel</button>
+                        </form>
+                    </div>
             </section>
             <section class="side-panel">
                 <h2 class="section_title">Today's Events</h2>
