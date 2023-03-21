@@ -14,14 +14,17 @@ from web_dynamic.api import api_views
 def get_courses():
     """view function to get users courses"""
     user_id = session.get('user_id')
-    semester = session.get('semester')
-    year = session.get('year')
+    semester = int(session.get('semester'))
+    year = int(session.get('year'))
 
-    if user_id:
+    if user_id and semester and year:
         courses = models.storage.all(Course)
-        c_list = [course.to_dict() for course in courses.values() if course.user_id == user_id and course.semester == semester and course.year == year]
+        c_list = [course.to_dict() for course in courses.values()\
+                if course.user_id == user_id\
+                and course.semester == semester and course.year == year]
 
         return make_response(jsonify(c_list), 200)
+    return make_response(jsonify({'error': 'invalid details'}), 400)
 
 
 @api_views.route('/courses', strict_slashes=False, methods=['POST'])
@@ -37,6 +40,7 @@ def create_courses():
         course_info = {'user_id': user_id, 'name': name, 'description': description, 'semester': semester, 'year': year}
         course = Course(**course_info)
         course.save()
+        course.create_grade()
         return make_response(jsonify(course.to_dict()), 201)
     else:
         return make_response(jsonify({'error': 'invalid details'}), 400)
