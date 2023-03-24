@@ -6,72 +6,111 @@
         <link rel="stylesheet" type="text/css" href="../statics/styles/login.css" />
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="../statics/scripts/login.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
     <body>
-        <!-- Button to open the modal login form -->
-        <button id="login_btn">Login</button>
+        <div class="container-md">
+            <nav class="navbar px-3">
+                <a class="navbar-brand text-light" href="#">SchoolHub</a>
 
-        <!-- The Modal -->
-        <div id="id01" class="modal">
-            <!-- Modal Content -->
-            <form class="modal-content animate" id="login-form" method="post">
-                <div class="imgcontainer">
-                    <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                  <ul class="navbar-nav list-group-horizontal">
+                    <li class="nav-item active mx-2">
+                      <a class="nav-link text-light" href="#">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                      <a class="nav-link text-light" href="#">about</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                      <a class="nav-link text-light" href="#">contact</a>
+                    </li>
+                  </ul>
+            </nav>
+            <section class="my-3">
+                <header class="masthead">
+                    <div class="container px-4 px-lg-5 h-100">
+                        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                            <div class="col-lg-8 align-self-end">
+                                <h1 class="text-white font-weight-bold">The all-in-one solution for student organisation</h1>
+                                <hr class="divider" />
+                            </div>
+                            <div class="col-lg-8 align-self-baseline">
+                                <p class="text-light mb-5">Organize your school grades, calculate your GPA and plan your events all in one place</p>
+                                <button id="login_btn">Login</button>
+                                <button id="signin_btn">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- login Modal -->
+                <div id="id01" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" id="login-form" method="post">
+                        <div class="imgcontainer">
+                            <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                        </div>
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="username" id="login-username" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="password" id="login-password" required>
+
+                            <button type="submit">Login</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
+
+                    
                 </div>
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" id="login-username" required>
+                <div class="error-msg"></div>
 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" id="login-password" required>
 
-                    <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                <!--sign in modal-->
+                <div id="id02" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" id="register-form" action="/register" method="post">
+                        <div class="imgcontainer">
+                            <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                        </div>
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="username" id="username" required>
+                            <div class="hide_str">username taken</div>
+
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" id="password"  placeholder="Enter Password" name="password" required>
+
+                            <label for="cnf-password"><b>Confirm Password</b></label>
+                            <input type="password" id="confirm-password"  placeholder="Enter Password" name="cnf-password" required>
+
+                            <div id="hide_str">password not matched</div>
+
+                            <button type="submit">Sign Up</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
                 </div>
+                <!--About-->
 
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-            
+                <!--contact-->
+            </section>
+
         </div>
-        <div class="error-msg"></div>
-
-
-        <!--sign in-->
-        <button id="signin_btn">Sign Up</button>
-        <div id="id02" class="modal">
-            <!-- Modal Content -->
-            <form class="modal-content animate" id="register-form" action="/register" method="post">
-                <div class="imgcontainer">
-                    <div class="SchoolHub"><h3>SchoolHub</h3></div>
-                </div>
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" id="username" required>
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" id="password"  placeholder="Enter Password" name="password" required>
-
-                    <label for="cnf-password"><b>Confirm Password</b></label>
-                    <input type="password" id="confirm-password"  placeholder="Enter Password" name="cnf-password" required>
-
-                    <div id="hide_str">password not matched</div>
-
-                    <button type="submit">Sign Up</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>

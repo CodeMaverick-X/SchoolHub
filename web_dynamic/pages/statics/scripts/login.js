@@ -52,7 +52,7 @@ $('#signin_btn').on('click', function() {
     var confirmPassword = $('#confirm-password').val();
     if (password !== confirmPassword) {
       //alert('Passwords do not match!');
-      $("#hide_str").css('display', 'block')
+      $("#hide_str").css('display', 'block');
       event.preventDefault();
     }
     else {
@@ -65,7 +65,12 @@ $('#signin_btn').on('click', function() {
         },
         success: function(response) {
             // redirect to login on successful login
-            window.location.href = '/home';
+            if (response.success) {
+                window.location.href = '/home';
+            } else {
+                console.log(response.message);
+                $(".hide_str").css('display', 'block')
+            }
         },
         error: function(xhr) {
             var errorMsg = xhr.responseText;
