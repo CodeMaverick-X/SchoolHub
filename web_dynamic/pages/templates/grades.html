@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../statics/styles/header.css"/>
+        <link rel="stylesheet" type="text/css" href="../statics/styles/side_panel.css"/>
+        <link rel="stylesheet" type="text/css" href="../statics/styles/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="../statics/styles/home.css"/>
+        <link rel="stylesheet" type="text/css" href="../statics/styles/grades.css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../statics/scripts/grades.js"></script>
+        <script src="../statics/scripts/side_panel.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <span class="logo">SchoolHub</span>
+            <nav class="topnav">
+                <a href="{{ url_for('page_views.home') }}">Home</a>
+                <a href="{{ url_for('page_views.settings') }}">Settings</a>
+                <a class="active" href="{{ url_for('page_views.grades') }}">Grades</a>
+                <a href="{{ url_for('page_views.events') }}">Events</a>
+            </nav>
+        </header>
+        <div class="midle_container">
+            <section class="page-content">
+                <!--fill  this part-->
+                <table class="grades_table" id="grades_table">
+                    <tr id="head">
+                      <th>Courses</th>
+                      <th>Weight</th>
+                      <th>C/A</th>
+                      <th>Exam</th>
+                      <th>Total</th>
+                      <th>Grade</th>
+                    </tr>
+                  </table>
+                  <div class="edit_class">
+                    <div class="edit-add_modal">
+                        <form class="edit_form">
+                            <div><h3>Edit Grade</h3></div>
+
+                            <label for="cname"><b>Weight</b></label>
+                            <input type="number" placeholder="Enter course weight" id="weight"  name="cname" maxlength="1">
+
+                            <label for="cname"><b>C.A</b></label>
+                            <input type="number" step="1" placeholder="CA score" id="ca" name="cname" maxlength="2">
+
+                            <label for="cname"><b>Exam</b></label>
+                            <input type="number" step="1" placeholder="Exam score" id="exam" name="cname" maxlength="2">
+
+                            <div>
+                                <button type="submit">Save</button>
+                                <button type="button" class="cancelbtn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--edit grades modal-->
+                </div>
+                <div class="grade_point">
+                    <div class="grades_title">Grade point</div>
+                    <div id="coming_soon">Coming soon</div>
+            </section>
+            <section class="side-panel">
+                <h2 class="section_title">Today's Events</h2>
+            </section>
+        </div>
+        <footer>
+            <span>&copy; 2023 SchoolHub</span>
+        </footer>
+    </body>
+</html>

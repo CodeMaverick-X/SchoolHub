@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>place holder</title>
+        <link rel="stylesheet" type="text/css" href="../statics/styles/login.css" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../statics/scripts/login.js"></script>
+    </head>
+    <body>
+        <!-- Button to open the modal login form -->
+        <button id="login_btn">Login</button>
+
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <!-- Modal Content -->
+            <form class="modal-content animate" id="login-form" method="post">
+                <div class="imgcontainer">
+                    <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                </div>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" id="login-username" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="login-password" required>
+
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+            
+        </div>
+        <div class="error-msg"></div>
+
+
+        <!--sign in-->
+        <button id="signin_btn">Sign Up</button>
+        <div id="id02" class="modal">
+            <!-- Modal Content -->
+            <form class="modal-content animate" id="register-form" action="/register" method="post">
+                <div class="imgcontainer">
+                    <div class="SchoolHub"><h3>SchoolHub</h3></div>
+                </div>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" id="password"  placeholder="Enter Password" name="password" required>
+
+                    <label for="cnf-password"><b>Confirm Password</b></label>
+                    <input type="password" id="confirm-password"  placeholder="Enter Password" name="cnf-password" required>
+
+                    <div id="hide_str">password not matched</div>
+
+                    <button type="submit">Sign Up</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
