@@ -56,6 +56,14 @@ def register():
     return render_template('login.html')
 
 
+@page_views.route('/logout', methods=['GET'])
+def logout():
+    """logout user from session and redirect to home page"""
+    session.pop('user', None)
+
+    return redirect(url_for('index'))
+
+
 @page_views.route('/home')
 def home():
     """this route is for the home page"""
