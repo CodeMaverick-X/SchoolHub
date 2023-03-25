@@ -61,7 +61,7 @@ def logout():
     """logout user from session and redirect to home page"""
     session.pop('user', None)
 
-    return redirect(url_for('index'))
+    return redirect(url_for('page_views.index'))
 
 
 @page_views.route('/home')
@@ -77,7 +77,7 @@ def settings():
     """route for settings page"""
     if g.user:
         return render_template('settings.html', user=session['user'])
-    return redirect(url_for('index'))
+    return redirect(url_for('page_views.index'))
 
 
 @page_views.route('/grades')
@@ -85,7 +85,7 @@ def grades():
     """route for grades page"""
     if g.user:
         return render_template('grades.html', user=session['user'])
-    return redirect(url_for('index'))
+    return redirect(url_for('page_views.index'))
 
 
 @page_views.route('/events')
@@ -93,7 +93,7 @@ def events():
     """route for events page"""
     if g.user:
         return render_template('events.html', user=session['user'])
-    return redirect(url_for('index'))
+    return redirect(url_for('page_views.index'))
 
 
 @page_views.before_request
