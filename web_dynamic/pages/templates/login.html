@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
         <title>place holder</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../statics/styles/login.css" />
@@ -9,25 +10,22 @@
         <script src="../statics/scripts/login.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
-    <body>
-        <div class="container-md">
-            <nav class="navbar px-3">
-                <a class="navbar-brand text-light" href="#">SchoolHub</a>
-
-                  <ul class="navbar-nav list-group-horizontal">
-                    <li class="nav-item active mx-2">
-                      <a class="nav-link text-light" href="#">Home</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                      <a class="nav-link text-light" href="#">about</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                      <a class="nav-link text-light" href="#">contact</a>
-                    </li>
-                  </ul>
+    <body id="page-top">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top py-0" id="mainNav">
+                <div class="container px-4 px-lg-5">
+                    <a class="navbar-brand" href="#page-top">SchoolHub</a>
+                    <button class="navbar-toggler navbar-toggler-right col-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
-            <section class="my-3">
-                <header class="masthead">
+            <section class="">
+                <header class="masthead" id="about">
                     <div class="container px-4 px-lg-5 h-100">
                         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                             <div class="col-lg-8 align-self-end">
@@ -106,22 +104,29 @@
                         </div>
                     </form>
                 </div>
+            </section>
+
+            <section class="section-2" id="services">
                 <!--About-->
-                <div class="row mt-5">
-                    <div class="col-md card m-2 p-3">
+                <div class="row mt-5 mx-4">
+                    <div class="col-12 card m-2 p-3">
                         <h2>Create courses by semester</h2>
                         <p>each course can be created for for each semester and each year for up to year 5</p>
+                        <img src="../statics/images/sh_settings.png" class="img-fluid max-width: 100%; height: auto;" alt="">
                     </div>
-                    <div class="col-md card m-2 p-3">
+                    <div class="col-12 card m-2 p-3">
                         <h2>Record grade for each course by semester</h2>
                         <p>Nigerian university grading system is used to calculate and store grades for each semester and year</p>
+                        <img src="../statics/images/sh_grades.png" class="img-fluid max-width: 100%; height: auto;" alt="">
                     </div>
-                    <div class="col-md card m-2 p-3">
+                    <div class="col-12 card m-2 p-3">
                         <h2>Never forget an event</h2>
                         <p>add events to your time table so that you never miss an event</p>
+                        <img src="../statics/images/sh_evets.png" class="img-fluid max-width: 100%; height: auto;" alt="">
                     </div>
                 </div> 
-
+            </section>
+            <section class="section-3">
                 <!--contact-->
                 <div class="row bg-white my-5 rounded p-3">
                     <div class="col-md-3"></div>
@@ -135,8 +140,8 @@
                 </div>
             </section>
 
-        </div>
-        <footer class="bg-dark text-center text-white">
+
+        <footer class="footer bg-dark text-center text-white" id="contact">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
               <!-- Section: Social media -->
