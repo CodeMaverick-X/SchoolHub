@@ -26,3 +26,4 @@ jobs:
           mysql user: 'sh_test_user' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
           mysql password: 'Sch_t3st_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
+      - run: ls
