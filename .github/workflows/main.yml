@@ -27,3 +27,7 @@ jobs:
           mysql password: 'Sch_t3st_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
       - run: ls
+      - name: set test env variables
+        run: export SH_USER='sh_test_user'; export SH_PWD='Sch_t3st_#3#_pwd'; export SH_HOST='localhost'; export SH_DATABASE='sh_test_db'; export SH_ENV='test';
+      - name: start test
+        run: python3 -m unittest discover
