@@ -32,12 +32,12 @@ jobs:
           mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
           mysql password: 'Sch_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
-      - run: cat setup_mysql_test.sql | mysql  -hlocalhost -u root -ppassword 
       - run: ls
       - run: sudo apt-get install libmysqlclient-dev
       - run: sudo apt-get install zlib1g-dev
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
       - run: sudo systemctl start mysql.service
+      - run: cat setup_mysql_test.sql | mysql  -hlocalhost -u root -ppassword
       - name: start test
         run: python3 -m unittest discover
