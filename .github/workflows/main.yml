@@ -28,10 +28,11 @@ jobs:
           collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
           mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
           mysql database: 'sh_test_db' # Optional, default value is "test". The specified database which will be create
-          mysql root password: 'Sch_t3st_#3#_pwd' # Required if "mysql user" is empty, default is empty. The root superuser password
-          mysql user: 'sh_test_user' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-          mysql password: 'Sch_t3st_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
+          mysql root password: 'password' # Required if "mysql user" is empty, default is empty. The root superuser password
+          mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+          mysql password: 'Sch_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
+      - run: cat setup_mysql_test.sql | mysql  -hlocalhost -u root -ppassword 
       - run: ls
       - run: sudo apt-get install libmysqlclient-dev
       - run: sudo apt-get install zlib1g-dev
