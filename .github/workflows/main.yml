@@ -27,8 +27,8 @@ jobs:
           mysql password: 'Sch_t3st_#3#_pwd' # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
       - run: ls
-      - run: apt-get install libmysqlclient-dev
-      - run: apt-get install zlib1g-dev
+      - run: sudo apt-get install libmysqlclient-dev
+      - run: sudo apt-get install zlib1g-dev
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
       - name: set test env variables
