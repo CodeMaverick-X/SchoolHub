@@ -10,6 +10,7 @@ from models.event import Event
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+from os import getenv
 
 
 classes = { "User": User, "Course": Course, "Event": Event, "Grade": Grade}
@@ -22,18 +23,18 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        MYSQL_USER = 'sh_user'
-        MYSQL_PWD = 'sch_#3#_pwd'
-        MYSQL_HOST = 'localhost'
-        MYSQL_DB = 'sh_db'
-        ENV = 'ENV'
+        MYSQL_USER = getenv('SH_USER')#'sh_user'
+        MYSQL_PWD = getenv('SH_PWD')#'sch_#3#_pwd'
+        MYSQL_HOST = getenv('SH_HOST')#'localhost'
+        MYSQL_DB = getenv('SH_DATABASE')#'sh_db'
+        ENV = getenv('SH_ENV')#'ENV'
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(MYSQL_USER,
                                              MYSQL_PWD,
                                              MYSQL_HOST,
                                              MYSQL_DB))
 
-
+                                      
         if ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
