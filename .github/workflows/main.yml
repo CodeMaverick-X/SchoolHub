@@ -6,31 +6,28 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+
     services:
       mysql:
         image: mysql:8.0
-        ports:
-          - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-      - run: sudo apt-get install libmysqlclient-dev
-      - run: sudo apt-get install zlib1g-dev
-      - run: pip3 install mysqlclient
-      - run: pip3 install SQLAlchemy
-      - name: Start MySQL server
-        run: docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -p 3307:3306 -d mysql:8.0
-      - name: Wait for MySQL to start
-        run: docker inspect --format='{{json .State.Health}}' mysql | jq '.Log[].Output' --raw-output | grep -q 'ping response received'
-      - run: cat setup_mysql_test.sql | mysql -u root -ppassword
-      - name: Run unit tests
-        run: python3 -m unittest discover
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - run: sudo apt-get install libmysqlclient-dev
+    - run: sudo apt-get install zlib1g-dev
+    - run: pip3 install mysqlclient
+    - run: pip3 install SQLAlchemy
+    - run: cat setup_mysql_test.sql | mysql -u root -ppassword
+    - name: Run unittests
+      run: python3 -m unittest discover
