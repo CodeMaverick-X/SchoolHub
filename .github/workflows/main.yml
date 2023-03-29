@@ -30,7 +30,7 @@ jobs:
       - name: Start MySQL server
         run: docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -p 3307:3306 -d mysql:8.0
       - name: Wait for MySQL to start
-        run: docker inspect --format='{{json .State.Health}}' mysql | jq '.Log[].Output' --raw-output | grep -q 'mysqladmin:.*ping response received'
+        run: docker inspect --format='{{json .State.Health}}' mysql | jq '.Log[].Output' --raw-output | grep -q 'ping response received'
       - run: cat setup_mysql_test.sql | mysql -u root -ppassword
       - name: Run unit tests
         run: python3 -m unittest discover
