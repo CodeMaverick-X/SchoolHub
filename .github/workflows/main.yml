@@ -6,38 +6,31 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-  run-test:
+  build:
     runs-on: ubuntu-latest
-    env:
-        SH_HOST: 'localhost'
-        SH_PWD: 'Sch_t3st_#3#_pwd'
-        SH_USER: 'sh_test_user'
-        SH_ENV: 'test'
-        SH_DATABASE: 'sh_test_db'
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
-          python-version: "3.8"
-        
-      - uses: samin/mysql-action@v1.1
-        with:
-          host port: 3800 # Optional, default value is 3306. The port of host
-          container port: 3307 # Optional, default value is 3306. The port of container
-          character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
-          collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
-          mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
-          mysql database: 'some_test' # Optional, default value is "test". The specified database which will be create
-          mysql root password: ${{ secrets.RootPassword }} # Required if "mysql user" is empty, default is empty. The root superuser password
-          mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Of course you can use secrets, too
-          mysql password: ${{ secrets.DatabasePassword }} # Required if "mysql user" exists. The password for the "mysql user"
-      - run: sudo ufw allow mysql
-      - run: mysql --version
-      - run: ls
+          python-version: '3.8'
       - run: sudo apt-get install libmysqlclient-dev
       - run: sudo apt-get install zlib1g-dev
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
-      - run: mysql -p 3800 -u root --password=${{ secrets.DatabasePassword }}
-      - name: start test
+      - name: Start MySQL server
+        run: docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -p 3307:3306 -d mysql:8.0
+      - name: Wait for MySQL to start
+        run: docker inspect --format='{{json .State.Health}}' mysql | jq '.Log[].Output' --raw-output | grep -q 'mysqladmin: ping response received'
+      - run: cat setup_mysql_test.sql | mysql -u root -ppassword
+      - name: Run unit tests
         run: python3 -m unittest discover
