@@ -24,7 +24,7 @@ jobs:
       - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password_again Sch_t3st_#3#_pwd'
       - run: sudo apt-get update
       - run: sudo apt-get install -y mysql-server-8.0
-
+      - run: sudo ufw allow mysql
       - run: mysql --version
       - run: ls
       - run: sudo apt-get install libmysqlclient-dev
