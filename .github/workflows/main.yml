@@ -27,7 +27,15 @@ jobs:
       - run: sudo apt-get install zlib1g-dev
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
-      - run: sudo systemctl start mysql.service
-      - run: echo 'show databases; exit'  | sudo mysql
+      - name: Pipe MySQL script into server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: 'username'
+          password: 'password'
+          script: |
+              sudo systemctl start mysql
+              mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';"
+      - run: cat setup_mysql_test.sql  | sudo mysql -u root -ppassword
       - name: start test
         run: python3 -m unittest discover
