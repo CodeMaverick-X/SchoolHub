@@ -20,10 +20,17 @@ jobs:
         with:
           python-version: "3.8"
         
-      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password Sch_t3st_#3#_pwd'
-      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password_again Sch_t3st_#3#_pwd'
-      - run: sudo apt-get update
-      - run: sudo apt-get install -y mysql-server-8.0
+      - uses: samin/mysql-action@v1
+        with:
+          host port: 3800 # Optional, default value is 3306. The port of host
+          container port: 3307 # Optional, default value is 3306. The port of container
+          character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
+          collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
+          mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
+          mysql database: 'some_test' # Optional, default value is "test". The specified database which will be create
+          mysql root password: ${{ secrets.RootPassword }} # Required if "mysql user" is empty, default is empty. The root superuser password
+          mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Of course you can use secrets, too
+          mysql password: ${{ secrets.DatabasePassword }} # Required if "mysql user" exists. The password for the "mysql user"
       - run: sudo ufw allow mysql
       - run: mysql --version
       - run: ls
@@ -32,6 +39,6 @@ jobs:
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
       - run: sudo systemctl start mysql.service
-      - run: mysql -u root --password='Sch_t3st_#3#_pwd'
+      - run: mysql -u root --password=${{ secrets.DatabasePassword }}
       - name: start test
         run: python3 -m unittest discover
