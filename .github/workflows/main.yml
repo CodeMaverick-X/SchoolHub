@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: "3.8"
         
-      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password password password'
-      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password_again password password'
+      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password password'
+      - run: sudo debconf-set-selections <<< 'mysql-server-8.0 mysql-server/root_password_again password'
       - run: sudo apt-get update
       - run: sudo apt-get install -y mysql-server-8.0
 
