@@ -27,6 +27,7 @@ jobs:
       - run: pip3 install mysqlclient
       - run: pip3 install SQLAlchemy
       - run: sudo systemctl start mysql.service
+      - run: pip3 insatll flask
       - run: cat setup_mysql_test.sql | sudo mysql -u root --password=root
       - name: start test
         run: python3 -m unittest discover
