@@ -78,9 +78,11 @@ def get_default_sch_info():
     semester = session.get('semester')
     year = session.get('year')
 
+    user = models.storage.get(User, user_id)
+
     if user_id and semester and year:
 
-        info_dict = {'user_id': user_id, 'semester': semester, 'year': year}
+        info_dict = {'user_id': user_id, 'semester': semester, 'year': year, 'username': user.username}
 
         return make_response(jsonify(info_dict), 200)
 
