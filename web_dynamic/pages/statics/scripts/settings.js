@@ -10,9 +10,10 @@ $(function() {
             success: function(response) {
               year = response.year;
               semester = response.semester
+	      username = response.username
               $('#dropdown2').val($(`#dropdown2 .${year}`).val());
               $('#dropdown1').val($(`#dropdown1 .${semester}`).val());
-	          $('#username').text(username);
+	      $('#username').text(username);
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
