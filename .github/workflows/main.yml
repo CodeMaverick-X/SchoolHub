@@ -6,31 +6,38 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-  test:
+  run-test:
     runs-on: ubuntu-latest
-
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: password
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
+    env:
+        SH_HOST: 'localhost'
+        SH_PWD: 'Sch_t3st_#3#_pwd'
+        SH_USER: 'sh_test_user'
+        SH_ENV: 'test'
+        SH_DATABASE: 'sh_test_db'
     steps:
-    - name: Start MySQL service
-      run: docker-compose up -d
-      working-directory: .
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
-    - run: sudo apt-get install libmysqlclient-dev
-    - run: sudo apt-get install zlib1g-dev
-    - run: pip3 install mysqlclient
-    - run: pip3 install SQLAlchemy
-    - run: cat setup_mysql_test.sql | mysql -u root -ppassword
-    - name: Run unittests
-      run: python3 -m unittest discover
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.8"
+
+      - uses: mirromutth/mysql-action@v1.1
+        with:
+          host port: 3800 # Optional, default value is 3306. The port of host
+          container port: 3307 # Optional, default value is 3306. The port of container
+          character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
+          collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
+          mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
+          mysql database: 'sh_test_db' # Optional, default value is "test". The specified database which will be create
+          mysql root password: 'password' # Required if "mysql user" is empty, default is empty. The root superuser password
+          mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+          mysql password: 'me' # Required if "mysql user" exists. The password for the "mysql user"
+      - run: mysql --version
+      - run: ls
+      - run: sudo apt-get install libmysqlclient-dev
+      - run: sudo apt-get install zlib1g-dev
+      - run: pip3 install mysqlclient
+      - run: pip3 install SQLAlchemy
+      - run: sudo systemctl start mysql.service
+      - run: mysql -u root --password=password
+      - name: start test
+        run: python3 -m unittest discover
