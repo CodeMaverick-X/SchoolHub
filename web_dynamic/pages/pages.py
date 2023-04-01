@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """this module is to handle the routes for login"""
 
-from flask import Flask, session, render_template, request, redirect, g, url_for, jsonify, make_response
-
+from flask import Flask, session, render_template,\
+                  request, redirect, g, url_for, jsonify, make_response
 import models
 from models.user import User
 import os
@@ -18,7 +18,8 @@ def index():
         password = request.form['password']
         username = request.form['username']
 
-        if (known_user := models.storage.get_user(username)) and (known_user.password == password):
+        if (known_user := models.storage.get_user(username)) and\
+           (known_user.password == password):
             session['user'] = username
             session['user_id'] = known_user.id
             session['year'] = known_user.current_year
@@ -38,7 +39,8 @@ def register():
 
         password = request.form['password']
         username = request.form['username']
-        user_info = {'username': username, 'password': password, 'current_year': 1, 'current_semester': 1}
+        user_info = {'username': username, 'password': password,
+                     'current_year': 1, 'current_semester': 1}
 
         if models.storage.unique(username):
             user = User(**user_info)
@@ -50,9 +52,10 @@ def register():
             session['user_id'] = user.id
             session['year'] = user.current_year
             session['semester'] = user.current_semester
-            return jsonify({'success': True, 'message': 'Registration successful'})
+            return jsonify({'success': True,
+                            'message': 'Registration successful'})
         else:
-            return jsonify({'success': False, 'message': 'username taken'}) 
+            return jsonify({'success': False, 'message': 'username taken'})
     return render_template('login.html')
 
 
@@ -102,4 +105,3 @@ def before_request():
 
     if 'user' in session:
         g.user = session['user']
-

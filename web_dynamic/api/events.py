@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""restful api for events"""
+"""API for events"""
 
 from flask import Flask, session, request, g, jsonify, make_response
 
@@ -16,7 +16,6 @@ from web_dynamic.api import api_views
 def get_events():
     """get all events for a specific user"""
     user_id = session.get('user_id')
-
     user = models.storage.get(User, user_id)
 
     events = [event.to_dict() for event in user.events]
@@ -26,7 +25,7 @@ def get_events():
 
 @api_views.route('/events', strict_slashes=False, methods=['PUT'])
 def edit_events():
-
+    """edit event details"""
     name = request.form['name']
     tag = request.form['tag']
     user_id = session.get('user_id')
@@ -40,5 +39,3 @@ def edit_events():
         models.storage.save()
         return make_response(jsonify({'success': True}), 200)
     return make_response(jsonify({'success': False}), 400)
-
-

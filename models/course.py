@@ -27,7 +27,10 @@ class Course(BaseModel, Base):
 
 
     def create_grade(self):
-        """create the grade for the course"""
+        """__create_grade__
+            Desc: create the grade for the course which has a one to one
+            mapping to its course
+        """
         grade_info = {'user_id': self.user_id, 'course_id': self.id,
                       'name': self.name, 'semester': self.semester,
                       'year': self.year, 'ca': 0, 'weight': 0, 'exam': 0, 'total': 0, 'grade': 'NA'}
