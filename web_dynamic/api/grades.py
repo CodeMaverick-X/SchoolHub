@@ -13,25 +13,35 @@ from web_dynamic.api import api_views
 @api_views.route('/grades', strict_slashes=False, methods=['GET'])
 def get_grades():
     """route to get grades"""
-    user_id = session.get('user_id')
-    semester = int(session.get('semester'))
-    year = int(session.get('year'))
+    if not g.username:
+        return make_response(jsonify({'error': 'invalid details'}), 400)
 
-    if user_id and semester and year:
-        grades = models.storage.all(Grade)
-        g_list = [grade.to_dict() for grade in grades.values()
-                  if grade.user_id == user_id and
-                  grade.semester == semester and grade.year == year]
-        return make_response(jsonify(g_list), 200)
+    user_id = g.user_id
+    try:
+        semester = int(g.semester)
+        year = int(g.year)
+    except(Exception):
+        return make_response(jsonify({'error': 'invalid info details or type'}), 400)
+
+    user = models.storage.get(User, user_id)
+    if user and semester and year:
+        grades = [course.grade.to_dict() for course in user.courses
+                  if course.semester == semester
+                  and course.year == year]
+        return make_response(jsonify(grades), 200)
     return make_response(jsonify({'error': 'invalid details'}), 400)
 
 
 @api_views.route('/grades/<grade_id>', strict_slashes=False, methods=['PUT'])
 def update_grades(grade_id=None):
     """update grades """
-    grade = models.storage.get(Grade, grade_id)
+    if not g.username:
+        return make_response(jsonify({'error': 'invalid details'}), 400)
 
-    if grade:
+    grade = models.storage.get(Grade, grade_id)
+    user_id = g.user_id
+
+    if grade and grade.user_id == user_id:
         weight, ca, exam = request.form['weight'],\
                             request.form['ca'], request.form['exam']
 
@@ -51,3 +61,14 @@ def update_grades(grade_id=None):
 
         return make_response(jsonify({'success': True}), 200)
     return make_response(jsonify({'error': 'invalid details'}), 400)
+
+
+@api_views.before_request
+def load_user():
+    g.username = None
+
+    if 'user' in session:
+        g.username = session.get('user')
+        g.user_id = session.get('user_id')
+        g.year = session.get('year')
+        g.semester = session.get('semester')
