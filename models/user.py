@@ -14,8 +14,8 @@ class User(BaseModel, Base):
 
 
     __tablename__ = 'users'
-    password = Column(String(128), nullable=False)
-    username = Column(String(128), nullable=True)
+    password = Column(String(90), nullable=False)
+    username = Column(String(50), nullable=True)
     current_semester = Column(Integer, nullable=True)
     current_year = Column(Integer, nullable=True)
     courses = relationship("Course", backref="user", cascade="all, delete, delete-orphan")

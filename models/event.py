@@ -12,11 +12,11 @@ class Event(BaseModel, Base):
     """the class for event"""
 
     __tablename__ = 'events'
-    name = Column(String(128))
+    name = Column(String(60))
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    day = Column(String(128), nullable=True)
-    time = Column(String(128), nullable=True)
-    tag = Column(String(128), nullable=False)
+    day = Column(String(20), nullable=True)
+    time = Column(String(20), nullable=True)
+    tag = Column(String(20), nullable=False)
     year = Column(Integer, nullable=True)
     semester = Column(Integer, nullable=True)
 
