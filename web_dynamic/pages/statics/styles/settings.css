@@ -109,6 +109,7 @@ button:hover {
 /* rules for the modals for edit add button*/
 input[type=text], input[type=password] {
     width: 100%;
+    max-width: 300px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -137,7 +138,7 @@ input[type=text], input[type=password] {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 70%; /* Could be more or less, depending on screen size */
-    max-width: 600px;
+    max-width: 500px;
     border-radius: 5px;
 }
 

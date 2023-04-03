@@ -3,9 +3,6 @@ $(function() {
     // add-edit modal form
     let modal = $('.edit-add_modal')[0];
     
-    
-
-    
 	// drop down for day
 	$("#dropdown-toggle1").click(function() {
 		$("#dropdown1").slideToggle();
@@ -27,7 +24,7 @@ $(function() {
                 },
                 error: function(xhr, textstat) {
                     let errorMsg = xhr.responseText;
-                    alert('something happened')
+                    console.log('something happened')
                     console.log(textstat);
                 }
         })
@@ -52,6 +49,23 @@ $(function() {
         let time = $('#dropdown2').val();
         let tag = day + "_" + time;
 
+        set_event(name, day, time, tag);
+    })
+
+    // clear event sets the event name to a space char
+    $('#clear_event').click(function(event) {
+
+        event.preventDefault();
+        let name = " ";
+        let day = $('#dropdown1').val();
+        let time = $('#dropdown2').val();
+        let tag = day + "_" + time;
+
+        set_event(name, day, time, tag);
+    })
+    
+    // sets the event name
+    function set_event(name, day, time, tag) {
         $.ajax({
             url: `/api/v1/events`,
             method: 'PUT',
@@ -65,13 +79,11 @@ $(function() {
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
-              alert('something happened')
+              console.log('something happened')
               console.log(textstat);
             }
           });
-    })
-    
-    
+    }
     
     
     // When the user clicks anywhere outside of the modal, close it
