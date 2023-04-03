@@ -17,7 +17,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
-              alert('something happened')
+              console.log('something happened')
               console.log(textstat);
             },
             complete: load_course()
@@ -37,7 +37,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
-              alert(errorMsg)
+              console.log(errorMsg)
             },
             contentType: 'application/json'
         })
@@ -76,7 +76,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
-              alert('something happened')
+              console.log('something happened')
               console.log(textstat);
             },
             complete: load_course()
@@ -85,7 +85,6 @@ $(function() {
 
     // load courses
     function load_course() {
-        console.log('near');
         $.ajax({
             url: '/api/v1/courses',
             method: 'GET',
@@ -98,7 +97,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
                 let errorMsg = xhr.responseText;
-                alert('something happened');
+                console.log('something happened');
                 console.log(textstat);
             }
         });
@@ -116,7 +115,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
                 let errorMsg = xhr.responseText;
-                alert('something happened');
+                console.log('something happened');
                 console.log(textstat);
             }
         })

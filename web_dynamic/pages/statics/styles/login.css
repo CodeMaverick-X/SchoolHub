@@ -206,7 +206,7 @@ span.psw {
     width: 100px;
 }
 
-#hide_str, .hide_str {
+.hide_str {
     color: #f44336;
     display: none;
     font-size: small;

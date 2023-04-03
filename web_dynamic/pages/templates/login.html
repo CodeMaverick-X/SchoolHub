@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
-        <title>place holder</title>
+        <title>SchoolHub</title>
+        <link rel="icon" type="image/x-icon" href="../statics/images/favicon.ico">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../statics/styles/login.css" />
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -51,6 +52,7 @@
                         <div class="container">
                             <label for="uname"><b>Username</b></label>
                             <input type="text" placeholder="Enter Username" name="username" id="login-username" required>
+                            <div class="hide_str" id="hide_str_login">incorrect username or password</div>
 
                             <label for="psw"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="password" id="login-password" required>
@@ -90,7 +92,7 @@
                             <label for="cnf-password"><b>Confirm Password</b></label>
                             <input type="password" id="confirm-password"  placeholder="Enter Password" name="cnf-password" required>
 
-                            <div id="hide_str">password not matched</div>
+                            <div class="hide_str" id="hide_str">password not matched</div>
 
                             <button type="submit">Sign Up</button>
                             <label>

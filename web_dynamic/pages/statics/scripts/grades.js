@@ -63,7 +63,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
               let errorMsg = xhr.responseText;
-              alert('something happened')
+              console.log('something happened')
               console.log(textstat);
             }
           });

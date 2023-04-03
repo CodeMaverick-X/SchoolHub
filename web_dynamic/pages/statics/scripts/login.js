@@ -16,6 +16,7 @@ $('#signin_btn').on('click', function() {
     $('#id02').css("display", "block");
 })
 
+ // login modal
  $('#login-form').submit(function(event) {
     event.preventDefault(); // prevent default form submission
 
@@ -31,12 +32,12 @@ $('#signin_btn').on('click', function() {
       },
       success: function(response, textstat) {
         // redirect to dashboard on successful login
-        console.log(textstat);
         window.location.href = '/home';
       },
       error: function(xhr, textstat) {
         var errorMsg = xhr.responseText;
-        alert('wrong user name or password')
+        $("#hide_str_login").css('display', 'block');
+
         console.log(textstat);
         $('#error-msg').html(errorMsg);
       }

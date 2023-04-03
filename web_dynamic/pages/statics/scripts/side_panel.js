@@ -24,7 +24,7 @@ $(function() {
     }
 
 
-    let events = {};
+    // load todays events
 
     $.ajax({
         url: '/api/v1/events',
@@ -34,7 +34,6 @@ $(function() {
             for (ev of response) {
                 let name = ev.name;
                 if (ev.day === day && (name.length > 2)) {
-                    console.log('ran');
                     let st_time = ev.time.split("-")[0] + ":00";
                     let end_time = ev.time.split("-")[1] + ":00";
                     let card = `
@@ -50,7 +49,7 @@ $(function() {
             },
             error: function(xhr, textstat) {
             let errorMsg = xhr.responseText;
-            alert('something happened')
+            console.log('something happened')
             console.log(textstat);
             }
     })
