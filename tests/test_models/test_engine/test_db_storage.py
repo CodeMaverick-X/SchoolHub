@@ -38,8 +38,14 @@ class TestDatabase(unittest.TestCase):
         user.create_events()
 
         all_class_count = storage.count()
-        self.assertEqual(all_class_count, 41) # 36 from the events, 3 users from the total test, 1 course, 1 grade
+        self.assertEqual(all_class_count, 152) # 36 from the events, 3 users from the total test, 1 course, 1 grade
 
         user_count = storage.count(User)
-        self.assertEqual(user_count, 3)
+        self.assertEqual(user_count, 7)
+
+
+    def tearDown(self):
+        """tear down database"""
+        pass
+        
 

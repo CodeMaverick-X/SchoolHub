@@ -30,6 +30,9 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
+def return_app():
+    return app
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(debug=True, port='5000')
