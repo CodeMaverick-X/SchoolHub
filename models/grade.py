@@ -30,7 +30,9 @@ class Grade(BaseModel, Base):
 
 
     def calc_grade(self):
-        """assings a grade for a grade, that is like A or B
+        """__calc_grade__
+            Desc: assings a grade(alphabet) for a grade(instance of grade class),
+            that is like A or B
             Desc: only calculates grade if the total score is more than 30
         """
         t = self.total

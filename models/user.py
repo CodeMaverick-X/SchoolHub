@@ -10,12 +10,12 @@ from sqlalchemy.orm import relationship
 
 
 class User(BaseModel, Base):
-    """Representation of a user """
+    """user class"""
 
 
     __tablename__ = 'users'
-    password = Column(String(128), nullable=False)
-    username = Column(String(128), nullable=True)
+    password = Column(String(90), nullable=False)
+    username = Column(String(50), nullable=True)
     current_semester = Column(Integer, nullable=True)
     current_year = Column(Integer, nullable=True)
     courses = relationship("Course", backref="user", cascade="all, delete, delete-orphan")
@@ -28,7 +28,10 @@ class User(BaseModel, Base):
 
 
     def create_events(self):
-        """cerates the event slots"""
+        """__create_events__
+            Desc: cerates the event slots, the user only gets to edit the events not create
+            then.
+        """
         days = {"MON": "monday", "TUE": "tuesday", "WED": "wednesday", "THU": "thursday",
                 "FRI": "friday", "SAT": "saturday", "SUN": "sunday"}
         times = ["8-10", "10-12", "12-14", "14-16", "16-18"]
