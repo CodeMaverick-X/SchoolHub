@@ -16,7 +16,7 @@ def test_index_home(client):
 
 def test_register(client, app):
     """test client registration"""
-    username = "reinhard"
+    username = "reinhard1"
     password = "super_secrete"
     response = client.post("/register", data={"username": username, "password": password})
 
@@ -28,7 +28,7 @@ def test_register(client, app):
 
 def test_register_existing_user(client, app):
     """test that user name is unique"""
-    username = "reinhard"
+    username = "reinhard2"
     password = "super_secrete"
     response1 = client.post("/register", data={"username": username, "password": password})
 
@@ -39,7 +39,7 @@ def test_register_existing_user(client, app):
 
 def test_wrong_poass_login(client):
     """test password authentication"""
-    username = "reinhard"
+    username = "reinhard3"
     password = "super_secrete"
     response1 = client.post("/register", data={"username": username, "password": password})
 
@@ -48,3 +48,46 @@ def test_wrong_poass_login(client):
 
     assert response2.status_code == 400
     assert rep.get("success") == False
+
+
+def test_home_page(client):
+    """test that the user is redirected to the home page"""
+    username = "reinhard4"
+    password = "super_secrete"
+    response1 = client.post("/register", data={"username": username, "password": password})
+    
+    rep = json.loads(response1.data.decode('utf-8'))
+    assert rep.get("success") == True
+    response2 = client.get('/home')
+    assert response2.status_code == 200
+    assert b'<title>Home</title>' in response2.data
+
+
+def test_settings_page(client):
+    """test that the settings page is rendered"""
+    username = "reinhard5"
+    password = "super_secrete"
+    response1 = client.post("/register", data={"username": username, "password": password})
+
+    response2 = client.get('/settings')
+    assert b'<title>settings</title>' in response2.data
+
+
+def test_grades_page(client):
+    """test that grades page is rendered"""
+    username = "reinhard6"
+    password = "super_secrete"
+    response1 = client.post("/register", data={"username": username, "password": password})
+
+    response2 = client.get('/grades')
+    assert b'<title>grades</title>' in response2.data
+
+
+def test_events_page(client):
+    """test that the events page is rendered"""
+    username = "reinhard7"
+    password = "super_secrete"
+    response1 = client.post("/register", data={"username": username, "password": password})
+
+    response2 = client.get('/events')
+    assert b'<title>events</title>' in response2.data

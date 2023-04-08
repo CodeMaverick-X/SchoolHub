@@ -70,7 +70,7 @@ def logout():
     return redirect(url_for('page_views.index'))
 
 
-@page_views.route('/home')
+@page_views.route('/home', methods=['GET'])
 def home():
     """this route is for the home page"""
     if g.user:
@@ -78,7 +78,7 @@ def home():
     return redirect(url_for('page_views.index'))
 
 
-@page_views.route('/settings')
+@page_views.route('/settings', methods=['GET'])
 def settings():
     """route for settings page"""
     if g.user:
@@ -86,7 +86,7 @@ def settings():
     return redirect(url_for('page_views.index'))
 
 
-@page_views.route('/grades')
+@page_views.route('/grades', methods=['GET'])
 def grades():
     """route for grades page"""
     if g.user:
@@ -94,7 +94,7 @@ def grades():
     return redirect(url_for('page_views.index'))
 
 
-@page_views.route('/events')
+@page_views.route('/events', methods=['GET'])
 def events():
     """route for events page"""
     if g.user:
