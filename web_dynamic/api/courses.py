@@ -66,16 +66,21 @@ def set_default_sch_info():
         return make_response(jsonify({'error': 'invalid details'}), 400)
 
     user_id = g.user_id
+    print('debug 1')
     user = models.storage.get(User, user_id)
 
     if not user:
         abort(400, description="Not a User")
     if not request.get_json():
         abort(400, description="Not a JSON")
-
     data = request.get_json()
-    session['year'] = user.current_year = data.get('year')
-    session['semester'] = user.current_semester = data.get('semester')
+    yr = data.get('year')
+    sm = data.get('semester')
+    if not yr in range(1,6) or not sm in range(1, 3):
+        return make_response(jsonify({'error': f'invalid details yr:{yr} sm:{sm}'}), 400)
+
+    session['year'] = user.current_year = yr
+    session['semester'] = user.current_semester = sm
 
     models.storage.save()
     user_dict = user.to_dict()

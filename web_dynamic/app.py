@@ -6,7 +6,7 @@ from flask import Flask, render_template, make_response, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.json.compact
 app.register_blueprint(page_views)
 app.register_blueprint(api_views)
 
@@ -30,6 +30,9 @@ def not_found(error):
         description: a resource was not found
     """
     return make_response(jsonify({'error': "Not found"}), 404)
+
+def return_app():
+    return app
 
 if __name__ == "__main__":
     """ Main Function """
