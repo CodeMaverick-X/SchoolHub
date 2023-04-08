@@ -3,3 +3,4 @@ Flask_Bcrypt==1.0.1
 Flask_Cors==3.0.10
 pytest==7.2.2
 SQLAlchemy==1.4.44
+mysqlclient==2.1.1
