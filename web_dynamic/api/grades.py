@@ -8,6 +8,7 @@ from models.course import Course
 from models.grade import Grade
 import os
 from web_dynamic.api import api_views
+from math import ceil
 
 
 @api_views.route('/grades', strict_slashes=False, methods=['GET'])
@@ -28,7 +29,50 @@ def get_grades():
         grades = [course.grade.to_dict() for course in user.courses
                   if course.semester == semester
                   and course.year == year]
-        return make_response(jsonify(grades), 200)
+
+        g_count = 0
+        used_c = 0
+        qp = 0
+        for grade in grades:
+            wt = grade['weight']
+
+            if grade['grade'] == 'NA' or not wt:
+                continue
+            elif grade['grade'] == 'A':
+                used_c += 1
+                g_count += wt
+                qp += 5 * wt
+            elif grade['grade'] == 'B':
+                used_c += 1
+                g_count += wt
+                qp += 4 * wt
+            elif grade['grade'] == 'C':
+                used_c += 1
+                g_count += wt
+                qp += 3 * wt
+            elif grade['grade'] == 'D':
+                used_c += 1
+                g_count += wt
+                qp += 2 * wt
+            elif grade['grade'] == 'E':
+                used_c += 1
+                g_count += wt
+                qp += 1 * wt
+            elif grade['grade'] == 'F':
+                used_c += 1
+                g_count += wt
+                qp += 0 * wt
+        
+        if g_count >= 1:
+            gpa = qp / g_count
+        else:
+            gpa = 0
+        grade_info = [round(gpa, 2), used_c, g_count]
+
+        info = [grades, grade_info]
+
+
+        return make_response(jsonify(info), 200)
     return make_response(jsonify({'error': 'invalid details'}), 400)
 
 
@@ -54,8 +98,9 @@ def update_grades(grade_id=None):
                 grade.exam = int(exam)
         except(Exception):
             return make_response(jsonify({'error': 'invalid details'}), 400)
-
-        grade.total = grade.ca + grade.exam
+        
+        if grade.ca and grade.exam:
+            grade.total = grade.ca + grade.exam
         grade.calc_grade()
         models.storage.save()
 

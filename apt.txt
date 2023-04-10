@@ -1,0 +1,2 @@
+libmysqlclient-dev
+zlib1g-dev
