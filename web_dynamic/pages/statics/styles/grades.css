@@ -100,7 +100,7 @@ input[type=number], input[type=password] {
     margin: 10px 0px;
 }
 
-#coming_soon {
+.coming_soon {
     width: 200px;
     margin-left: 20px;
     background-color: white;

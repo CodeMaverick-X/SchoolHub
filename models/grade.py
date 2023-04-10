@@ -15,7 +15,7 @@ class Grade(BaseModel, Base):
     course_id = Column(String(60), ForeignKey('courses.id'), nullable=False)
     name = Column(String(60), nullable=True)
     user_id = Column(String(60), nullable=False)
-    weight = Column(Integer, nullable=True)
+    weight = Column(Integer, nullable=True, default=0)
     ca = Column(Integer, nullable=True)
     exam = Column(Integer, nullable=True)
     total = Column(Integer, nullable=True)
@@ -33,18 +33,26 @@ class Grade(BaseModel, Base):
         """__calc_grade__
             Desc: assings a grade(alphabet) for a grade(instance of grade class),
             that is like A or B
-            Desc: only calculates grade if the total score is more than 30
+            Desc: only calculates grade if the total score is more than 30 #update
         """
         t = self.total
-        if (t >= 40 and t < 45):
+        try:
+            t = int(t)
+        except(Exception):
+            self.grade = "NA"
+            return
+
+        if t in range(1, 40):
+            self.grade = "F"
+        elif t in range(40, 45):
             self.grade = "E"
-        elif (t >= 45 and t < 50):
+        elif t in range(45, 50):
             self.grade = "D"
-        elif (t >= 50 and t < 60):
+        elif t in range(50, 60):
             self.grade = "C"
-        elif (t >= 60 and t < 70):
+        elif t in range(60, 70):
             self.grade = "B"
-        elif (t >= 70 and t <= 100):
+        elif t in range(70, 101):
             self.grade = "A"
         else:
             self.grade = "NA"

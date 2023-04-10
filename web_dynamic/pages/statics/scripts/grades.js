@@ -1,6 +1,6 @@
 $(function() {
 
-    grade_id = ""
+    let grade_id = ""
 
     // load the current grades for the current semester and year
     function load_grade() {
@@ -8,9 +8,15 @@ $(function() {
             url: '/api/v1/grades',
                 method: 'GET',
                 success: function(response) {
+		    let grades = response[0];
+            let grade_i = response[1];
+            $('.c_u').text(grade_i[1]);
+            $('.t_c').text(grade_i[2]);
+            $('.gpa').text(grade_i[0]);
+		    console.log(response[1]);
 
                     $('.grade').remove();
-                    for (grade of response) {
+                    for (grade of grades) {
                         t_row = `<tr class="grade">
                         <td><button class="edit_button" id="${grade.id}">${grade.name}</button></td>
                         <td>${grade.weight}</td>
