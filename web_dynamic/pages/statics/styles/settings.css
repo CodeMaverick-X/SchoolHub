@@ -83,6 +83,8 @@ button {
     border-radius: 5px;
     background-color: white;
     cursor: pointer;
+}
+.course {
     margin-top: 5px;
 }
 .buttons_wrapper {margin-left: 32px;}
@@ -95,6 +97,7 @@ button {
     font-size: 14px;
     cursor: pointer;
     border: none;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -151,3 +154,21 @@ input[type=text], input[type=password] {
 .default_info button {
     margin-top: 10px;
 }
+
+@media screen and (max-width: 600px) {
+    .user_image {
+        height: 100px;
+        width: 100px;
+        border-radius: 10px;
+        margin-top: 60px;
+        margin-left: 10px;
+        display: inline-block;
+    }
+    .buttons_wrapper {
+        margin-left: 10px;
+    }
+    .courses_data {
+        padding: 0px;
+    }
+    
+  }

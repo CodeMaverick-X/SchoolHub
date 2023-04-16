@@ -13,6 +13,7 @@ table {
     background-color: white;
     padding: 10px;
     border-radius: 5px;
+    overflow: scroll;
 }
 th {
     padding: 10px 7px;
@@ -48,6 +49,7 @@ button {
 button:hover {
     opacity: 0.8;
   }
+
 
 .grades_title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -101,3 +103,12 @@ input[type="text"] {
     width: 200px;
     display: block;
 }
+@media screen and (max-width: 600px) {
+    .page-content {
+        margin-top: 40px;
+        width: 100%;
+    }
+    .table_container {
+        overflow-x:auto;
+    }
+  }
