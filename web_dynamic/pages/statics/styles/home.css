@@ -3,8 +3,17 @@ body {
     
 }
 .page-content {
-    margin-top: 50px;
-    width: 65%;
+    margin-top: 60px;
+    width: 100%;
+}
+.school_image {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    height: 28%;
+    width: 90%;
+
 }
 
 .quote_header {
@@ -24,14 +33,7 @@ body {
     width: 60%;
 }
 
-.school_image {
-    margin-top: 40px;
-    margin-left: 10px;
-    border-radius: 5px;
-    height: 14%;
-    width: 80%;
 
-}
 footer span {
     padding-top: 5px;
     color: gray;
@@ -40,9 +42,18 @@ footer span {
 }
 
 /* Change styles for side_panel on extra small screens */
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 700px) {
     .page-content {
         margin-top: 50px;
-        width: 100%;
+        width: 65%;
     }
+    .school_image {
+        margin-top: 40px;
+        margin-left: 10px;
+        border-radius: 5px;
+        height: 14%;
+        width: 80%;
+    
+    }
+    
   }
